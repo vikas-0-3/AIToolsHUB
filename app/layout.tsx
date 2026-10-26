@@ -12,9 +12,9 @@ const body = DM_Sans({ subsets: ["latin"], variable: "--font-body", display: "sw
 const site = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(site),
-  title: { default: "AI Tools Hub: find and compare AI tools", template: "%s | AI Tools Hub" },
+  title: { default: "ToolsBuddy: find and compare AI tools", template: "%s | ToolsBuddy" },
   description: "Browse, filter and compare AI tools. Free to use, free to submit.",
-  openGraph: { type: "website", siteName: "AI Tools Hub" },
+  openGraph: { type: "website", siteName: "ToolsBuddy" },
   themeColor: "#090d18",
 };
 
@@ -27,7 +27,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <aside className="sticky top-0 hidden h-screen w-60 shrink-0 flex-col justify-between border-r p-4 md:flex">
             <div>
               <Link href="/" className="flex items-center gap-2 px-2 font-display text-lg font-bold">
-                <span aria-hidden className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-violet-500 to-cyan-400 text-white"><Sparkles size={18} /></span>AI Tools Hub</Link>
+                <span aria-hidden className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-violet-500 to-cyan-400 text-white"><Sparkles size={18} /></span>ToolsBuddy</Link>
               <nav className="mt-8 space-y-1" aria-label="Main"><NavLinks signedIn={!!user} /></nav>
             </div>
             <div>

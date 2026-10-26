@@ -57,7 +57,7 @@ export default async function ToolPage({ params, searchParams }: { params: { slu
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld).replace(/</g, "\\u003c") }} />
       <nav aria-label="Breadcrumb" className="text-sm text-slate-500"><Link href="/">Home</Link> / <Link href="/tools">Tools</Link> / {t.name}</nav>
       <div className="flex items-center gap-4"><ToolImage src={t.image_url} site={t.website_url} name={t.name} size={72} /><h1 className="text-4xl font-bold sm:text-5xl">{t.name}</h1></div>
-      <p className="flex items-center gap-2 text-sm text-slate-600"><Avatar url={sub?.avatar_url} name={sub?.display_name ?? "A"} size={24} />{sub ? `Added by ${sub.display_name}` : "Curated by AI Tools Hub"}</p>
+      <p className="flex items-center gap-2 text-sm text-slate-600"><Avatar url={sub?.avatar_url} name={sub?.display_name ?? "A"} size={24} />{sub ? `Added by ${sub.display_name}` : "Curated by ToolsBuddy"}</p>
       {t.is_seed && <p className="rounded bg-amber-50 p-2 text-sm">Sample entry for development. Not a real listing.</p>}
       <p>{t.description}</p>
       <p className="capitalize">Pricing: {t.pricing}{count > 0 && ` · Community rating: ${avg.toFixed(1)}/5 (${count})`}</p>
