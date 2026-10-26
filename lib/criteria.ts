@@ -1,0 +1,1 @@
+export const CRITERIA = [["cost", "Value"], ["usability", "Usability"], ["simplicity", "Simplicity"], ["features", "Features"], ["support", "Support"], ["quality", "Quality"], ["speed", "Speed"], ["privacy", "Privacy"]] as const;
