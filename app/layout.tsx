@@ -6,6 +6,7 @@ import "./globals.css";
 import { supabaseServer } from "@/lib/supabase/server";
 import ConsentBanner from "@/components/ConsentBanner";
 import NavLinks from "@/components/NavLinks";
+import SiteFooter from "@/components/SiteFooter";
 
 const display = Sora({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 const body = DM_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
@@ -35,7 +36,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               <p className="px-3 pt-3 text-xs text-slate-500">Free to browse and submit. Reviews come from real people.</p>
             </div>
           </aside>
-          <main className="min-w-0 flex-1 p-4 pb-28 md:p-8">{children}</main>
+          <main className="min-w-0 flex-1 p-4 pb-28 md:p-8">
+            {children}
+            <SiteFooter />
+          </main>
         </div>
         <nav className="fixed inset-x-3 bottom-3 z-40 flex rounded-2xl border bg-[#12172a]/90 shadow-pop backdrop-blur-xl md:hidden" aria-label="Mobile"><NavLinks signedIn={!!user} mobile /></nav>
         <ConsentBanner pub={process.env.NEXT_PUBLIC_ADSENSE_PUBLISHER_ID} />

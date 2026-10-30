@@ -72,7 +72,7 @@ export default async function Home({
       .eq("status", "approved"),
     sb.rpc("site_counts"),
   ]);
-  const list = searchParams.view === "list";
+  const list = searchParams.view !== "grid";
   const [pop, rec] = await Promise.all([
     toolMeta(popular ?? []),
     toolMeta(recent ?? []),
@@ -111,7 +111,7 @@ export default async function Home({
   ] as const;
   return (
     <div className="space-y-12">
-      <section className="relative overflow-hidden rounded-3xl border bg-white p-6 sm:p-12">
+      <section className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#171c32]/95 via-[#131a2d]/90 to-[#101a2a]/95 p-6 shadow-pop sm:p-12">
         <div
           aria-hidden
           className="orb absolute -right-16 -top-20 h-72 w-72 rounded-full bg-gradient-to-br from-violet-500 to-cyan-400 opacity-30 blur-3xl"
@@ -128,7 +128,7 @@ export default async function Home({
         <h1 className="relative mt-4 max-w-3xl text-4xl leading-[1.05] sm:text-6xl">
           Find the AI tool that fits, then see it side by side.
         </h1>
-        <p className="relative mt-4 max-w-xl text-lg text-slate-600">
+        <p className="relative mt-4 max-w-xl text-lg text-slate-300">
           Real reviews, ratings for cost, usability and support, and charts that
           make comparing easy.
         </p>
@@ -172,7 +172,7 @@ export default async function Home({
             <p className="mt-2 font-display text-3xl font-bold">
               <CountUp to={Number(n ?? 0)} />
             </p>
-            <p className="text-sm text-slate-600">{l}</p>
+            <p className="text-sm text-slate-400">{l}</p>
           </div>
         ))}
       </section>
@@ -187,7 +187,7 @@ export default async function Home({
           <span className="block font-display text-xl font-semibold">
             See who’s leading the leaderboard
           </span>
-          <span className="text-sm text-slate-600">
+          <span className="text-sm text-slate-300">
             Top rated, most saved and most viewed tools, plus top reviewers.
           </span>
         </span>
@@ -217,21 +217,26 @@ export default async function Home({
           })}
         </div>
       </section>
-      <div className="flex justify-end gap-1">
-        <Link
-          href="/?view=grid"
-          aria-label="Card view"
-          className={`rounded-lg p-2 ${!list ? "bg-white/10" : ""}`}
-        >
-          <LayoutGrid size={18} />
-        </Link>
-        <Link
-          href="/?view=list"
-          aria-label="List view"
-          className={`rounded-lg p-2 ${list ? "bg-white/10" : ""}`}
-        >
-          <List size={18} />
-        </Link>
+      <div className="flex items-center justify-between border-y border-white/10 py-3">
+        <p className="text-sm text-slate-400">Browse tools your way</p>
+        <div className="flex gap-1 rounded-xl border border-white/10 bg-white/5 p-1">
+          <Link
+            href="/?view=grid"
+            aria-label="Card view"
+            aria-current={!list ? "page" : undefined}
+            className={`rounded-lg p-2 transition ${!list ? "bg-white/10 text-white" : "text-slate-400 hover:text-white"}`}
+          >
+            <LayoutGrid size={18} />
+          </Link>
+          <Link
+            href="/"
+            aria-label="List view"
+            aria-current={list ? "page" : undefined}
+            className={`rounded-lg p-2 transition ${list ? "bg-white/10 text-white" : "text-slate-400 hover:text-white"}`}
+          >
+            <List size={18} />
+          </Link>
+        </div>
       </div>
       <section>
         <h2 className="mb-4 text-2xl">Trending</h2>
