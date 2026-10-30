@@ -12,7 +12,7 @@ export default function ToolRow({ t }: { t: any }) {
         <div className="mt-1 hidden flex-wrap gap-1 sm:flex">{(t.features ?? []).slice(0, 4).map((f: string) => <span key={f} className="chip normal-case text-slate-600">{f}</span>)}</div>
       </div>
       <div className="hidden shrink-0 items-center gap-4 text-sm text-slate-600 sm:flex">
-        <span className="flex items-center gap-2"><Avatar url={t.owner?.avatar_url} name={t.owner?.display_name ?? "A"} size={24} /><span className="max-w-[110px] truncate">{t.owner?.display_name ?? "AI Tools Hub"}</span></span>
+        <span className="flex items-center gap-2"><Avatar url={t.owner?.avatar_url} name={t.owner?.display_name ?? "A"} size={24} /><span className="max-w-[110px] truncate">{t.owner?.display_name ?? "AIToolsBuddy"}</span></span>
       </div>
       <span className={`chip price-${t.pricing}`}>{t.pricing}</span>
       {t.id && <div className="relative z-10 flex shrink-0 flex-col items-center">
